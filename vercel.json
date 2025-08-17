@@ -2,12 +2,13 @@
   "version": 2,
   "builds": [
     {
+      "src": "build.sh",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "public" }
+    },
+    {
       "src": "main.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "100mb",
-        "runtime": "python3.11"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -15,10 +16,5 @@
       "src": "/(.*)",
       "dest": "main.py"
     }
-  ],
-  "build": {
-    "env": {
-      "PIP_INSTALL": "pip install -r requirements.txt && python3 pre_cache_models.py"
-    }
-  }
+  ]
 }
