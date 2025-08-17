@@ -17,6 +17,4 @@ statsmodels
 langchain-community
 sentence-transformers
 faiss-cpu
-torch
-pytesseract
 langchain-google-genai
