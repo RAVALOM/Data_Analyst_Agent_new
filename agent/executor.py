@@ -45,7 +45,7 @@ def run_script_locally(script_code: str, temp_dir: Path, env_vars: dict) -> tupl
         logger.info(f"Running script '{script_filename}' locally via subprocess...")
         # Execute the script using 'python'
         process = subprocess.run(
-            ["python", str(script_path)],
+            ["python3", str(script_path)],
             capture_output=True,  # Capture stdout and stderr
             text=True,            # Decode output as text
             timeout=TIMEOUT_SECONDS,
@@ -69,3 +69,4 @@ def run_script_locally(script_code: str, temp_dir: Path, env_vars: dict) -> tupl
     except Exception as e:
         logger.error(f"An unexpected error occurred during subprocess execution: {e}")
         return None, f"An unexpected error occurred: {e}"
+
